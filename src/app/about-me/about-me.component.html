@@ -1,0 +1,31 @@
+<div class="about-me-container">
+
+    <mat-card class="container about-me-card mat-elevation-z8">
+        <mat-toolbar color="primary"> <span class="toolbar-text">Kenneth de Mello</span>
+            <span class="example-fill-remaining-space"></span></mat-toolbar>
+        <mat-card-header>
+            <mat-card-title>Software Developer</mat-card-title>
+            <!-- <mat-card-subtitle>about me</mat-card-subtitle> -->
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <p>about-me works!</p> -->
+            <div class="about-me-card-content" fxLayout="row wrap" fxLayoutGap="1rem grid">
+                <div fxFlex="25%" fxFlex.xs="100%">
+                    <mat-card>
+                        <img mat-card-image class="img" src='../../assets/self.jpg'>
+                    </mat-card>
+                </div>
+
+
+                <div fxFlex="75%" fxFlex.xs="100%">
+
+                    <app-bio></app-bio>
+                </div>
+
+
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+</div>
