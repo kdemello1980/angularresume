@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutmeService } from './service/aboutme.service';
+import { HttpClientModule } from '@angular/common/http';
 
 /**
  * Components.
@@ -24,6 +26,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { TitleComponent } from './title/title.component';
+import { ItemComponent } from './item/item.component';
+import { AboutThisPageComponent } from './about-this-page/about-this-page.component';
 
 
 @NgModule({
@@ -31,7 +36,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     AppComponent,
     ResumeComponent,
     AboutMeComponent,
-    BioComponent
+    BioComponent,
+    TitleComponent,
+    ItemComponent,
+    AboutThisPageComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +51,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatExpansionModule,
     MatTableModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AboutmeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

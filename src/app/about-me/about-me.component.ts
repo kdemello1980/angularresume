@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AboutmeService } from '../service/aboutme.service';
+import { Cert } from '../model/cert';
 
 @Component({
   selector: 'app-about-me',
@@ -8,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class AboutMeComponent implements OnInit {
 
   constructor() { }
+
+
 
   ngOnInit(): void {
   }

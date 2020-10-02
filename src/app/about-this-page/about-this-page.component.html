@@ -1,0 +1,23 @@
+<div class="about-page-container" fxFlex="100%">
+    <mat-card class="about-page about-page-card mat-elevation-z8" >
+        <mat-card-header>
+            <mat-card-title><h3>About This Page</h3></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <ng-container *ngTemplateOutlet="matCardContent"></ng-container>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<ng-template #matCardContent>
+    <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+
+        <div fxFlex="10%" fxFlex.sm="20%" fxFlex.xs="50%" *ngFor='let tech of techs'>
+            <mat-card class="mat-elevation-z0 tech-image">
+                <a href='{{tech.url}}' target="_blank">
+                    <img mat-card-image class="img" src="{{tech.image}}">
+                </a>
+            </mat-card>
+        </div>
+    </div>
+</ng-template>

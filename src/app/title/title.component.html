@@ -1,0 +1,13 @@
+
+<div fxLayout="column" fxLayoutGap="1rem">
+
+    <div class="resume-panel" fxFlex="100%" *ngFor="let title of titles">
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title><h5>{{title.name}}: {{title.fromDate}} - {{title.toDate}}</h5></mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-item [title]="title.titleId"></app-item>
+        </mat-expansion-panel>
+    </div>
+</div>

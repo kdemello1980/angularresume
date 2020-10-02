@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output  } from '@angular/core';
+import { Cert } from '../model/cert';
+import { AboutmeService } from '../service/aboutme.service';
 
 @Component({
   selector: 'app-bio',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BioComponent implements OnInit {
 
-  constructor() { }
+  certs: Cert[];
+
+  constructor(private aboutmeService: AboutmeService) { }
+
+  onExpand(): void {
+    // console.log('onexpand');
+    this.aboutmeService.getCerts().subscribe(
+      response => {
+        this.certs = response as Cert[];
+        // console.log(this.certs);
+      }
+    );
+  }
 
   ngOnInit(): void {
+
   }
 
 }

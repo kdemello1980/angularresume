@@ -1,10 +1,30 @@
-<div class="resume-container">
+<div class="resume-container" fxFlex="100%">
 
     <mat-card class="resume-card mat-elevation-z8">
-        <p>resume works!</p>
+        <mat-card-header>
+            <mat-card-title><h2>Resume</h2></mat-card-title>
+        </mat-card-header>
 
 
+        <div fxLayout="column" fxLayoutGap="1rem">
+            <div class="employer-panel" fxFlex="100%" *ngFor="let employer of employers">
+                <mat-expansion-panel (opened)="onExpand(employer.employerId)">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title><h3>{{employer.name}}</h3></mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <!-- <ng-container *ngTemplateOutlet="matExpansionPanelContent"></ng-container> -->
+                    <app-title [employer]="employer.employerId"></app-title>
+
+
+                </mat-expansion-panel>
+           </div>
+        </div>
     </mat-card>
 
 
 </div>
+
+<ng-template #matExpansionPanelContent>
+    <app-title [employer]="employer.employerId"></app-title>
+</ng-template>

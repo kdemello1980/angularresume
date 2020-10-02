@@ -1,20 +1,13 @@
 <div class="bio-container" fxFlex.xs="100%" fxFlex="95%">
-    <!-- <mat-card class="mat-elevation-z4"> -->
     <table>
         <tr>
             <td>
-                <!-- <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <mat-icon>face</mat-icon>
-                        </mat-panel-title>
-                        <mat-panel-description>Bio</mat-panel-description>
-                    </mat-expansion-panel-header> -->
-
-<mat-card>
-    <mat-card-header>
-        <mat-card-title><mat-icon>face</mat-icon>&nbsp;Bio</mat-card-title>
-    </mat-card-header>
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            <mat-icon>face</mat-icon>About Me
+                        </mat-card-title>
+                    </mat-card-header>
                     <p>
                         I am a software developer specializing in full-stack development. I also have
                         more than 10 years of experience in Linux & high performance
@@ -34,13 +27,11 @@
                         is for back-end development.
                     </p>
                 </mat-card>
-
-                <!-- </mat-expansion-panel> -->
             </td>
         </tr>
         <tr>
             <td>
-                <mat-expansion-panel>
+                <mat-expansion-panel (opened)="onExpand()">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <mat-icon>verified_user</mat-icon>
@@ -48,30 +39,24 @@
                         <mat-panel-description>Certifications</mat-panel-description>
                     </mat-expansion-panel-header>
 
-                    <div fxLayout="row wrap" fxLayoutGap="1rem grid">
-                        <div fxFlex="20%" fxFlex.sm="40%" fxFlex.xs="75%">
-                            <mat-card class="mat-elevation-z0 cert-image">
-                                <a href="https://www.youracclaim.com/badges/ea6fb63d-ccdc-4442-bf06-be4467d36276/public_url"
-                                    target="_blank">
-                                    <img mat-card-image class="img" src='../../assets/oca.png'>
-                                </a>
-                            </mat-card>
-                        </div>
-                        <div fxFlex="20%" fxFlex.sm="40%" fxFlex.xs="75%">
-                            <mat-card class="mat-elevation-z0 cert-image">
-                                <a href="https://www.youracclaim.com/badges/c3679a2c-b013-427e-b16b-0906bd3b7a87/public_url"
-                                    target="_blank">
-                                    <img mat-card-image class="img" src='../../assets/ccp.png'>
-                                </a>
-                            </mat-card>
-                        </div>
-                    </div>
-
-
+                    <ng-container *ngTemplateOutlet="matExpansionPanelContent"></ng-container>
 
                 </mat-expansion-panel>
             </td>
         </tr>
     </table>
-    <!-- </mat-card> -->
 </div>
+
+<ng-template #matExpansionPanelContent>
+    <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+
+        <div fxFlex="20%" fxFlex.sm="40%" fxFlex.xs="50%" *ngFor='let cert of certs'>
+            <mat-card class="mat-elevation-z0 cert-image">
+                <a href='{{cert.url}}' target="_blank">
+                    <img mat-card-image class="img" src="../../assets/{{cert.icon}}">
+                </a>
+            </mat-card>
+        </div>
+    </div>
+
+</ng-template>
